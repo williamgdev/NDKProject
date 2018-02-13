@@ -13,7 +13,7 @@ import javax.microedition.khronos.egl.EGLDisplay;
 
 public class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
 
-    private static String TAG = "GL2JNIView";
+    public static String TAG = "GL2JNIView";
     private static final boolean DEBUG = false;
 
     public ConfigChooser(int r, int g, int b, int a, int depth, int stencil) {
