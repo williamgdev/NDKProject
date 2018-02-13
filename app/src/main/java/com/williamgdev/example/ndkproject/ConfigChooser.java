@@ -12,8 +12,6 @@ import javax.microedition.khronos.egl.EGLDisplay;
  */
 
 public class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
-
-    public static String TAG = "GL2JNIView";
     private static final boolean DEBUG = false;
 
     public ConfigChooser(int r, int g, int b, int a, int depth, int stencil) {
@@ -105,9 +103,9 @@ public class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
     private void printConfigs(EGL10 egl, EGLDisplay display,
                               EGLConfig[] configs) {
         int numConfigs = configs.length;
-        Log.w(TAG, String.format("%d configurations", numConfigs));
+        Log.w(GL2JNIView.TAG, String.format("%d configurations", numConfigs));
         for (int i = 0; i < numConfigs; i++) {
-            Log.w(TAG, String.format("Configuration %d:\n", i));
+            Log.w(GL2JNIView.TAG, String.format("Configuration %d:\n", i));
             printConfig(egl, display, configs[i]);
         }
     }
@@ -189,7 +187,7 @@ public class ConfigChooser implements GLSurfaceView.EGLConfigChooser {
             int attribute = attributes[i];
             String name = names[i];
             if ( egl.eglGetConfigAttrib(display, config, attribute, value)) {
-                Log.w(TAG, String.format("  %s: %d\n", name, value[0]));
+                Log.w(GL2JNIView.TAG, String.format("  %s: %d\n", name, value[0]));
             } else {
                 // Log.w(TAG, String.format("  %s: failed\n", name));
                 while (egl.eglGetError() != EGL10.EGL_SUCCESS);
