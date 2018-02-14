@@ -168,15 +168,15 @@ void renderFrame() {
     checkGlError("glDrawArrays");
 }
 
-extern "C" {
+extern "C"
 JNIEXPORT void JNICALL
 Java_com_williamgdev_example_ndkproject_GL2JNILib_init(JNIEnv *env, jclass type, jint width,
                                                        jint height) {
     setupGraphics(width, height);
-}
 
+}extern "C"
 JNIEXPORT void JNICALL
 Java_com_williamgdev_example_ndkproject_GL2JNILib_step(JNIEnv *env, jclass type) {
+
     renderFrame();
-}
 }
